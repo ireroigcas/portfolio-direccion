@@ -80,11 +80,16 @@ if (lightbox) {
   });
 }
 
-// ---------- Showreel placeholder ----------
-const playBtn = document.querySelector('.play-btn');
-if (playBtn && !playBtn.getAttribute('data-vimeo')) {
-  playBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('Aquí irá embebido el showreel. Añade el enlace de Vimeo en data-vimeo del botón .play-btn.');
+// ---------- Showreel autoplay seguro ----------
+// Algunos navegadores móviles pausan el autoplay: forzamos play() tras la carga.
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  const tryPlay = () => {
+    const p = heroVideo.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+  heroVideo.addEventListener('loadeddata', tryPlay);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlay();
   });
 }
