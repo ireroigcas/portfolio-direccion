@@ -317,14 +317,15 @@ em {
   color: var(--mute);
 }
 .hero-reel-link {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: .6rem;
-  margin-top: 1.25rem;
-  padding-bottom: .35rem;
+  margin-top: 30px;
+  padding-bottom: .4rem;
   font-family: var(--font-body);
-  font-size: .74rem;
-  letter-spacing: .3em;
+  font-size: .9rem;
+  letter-spacing: .25em;
   text-transform: uppercase;
   color: var(--ink);
   border-bottom: 1px solid var(--ink);
