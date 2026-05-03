@@ -1287,3 +1287,33 @@ body.lightbox-open { overflow: hidden; }
   }
   .marquee-track { animation: none; }
 }
+
+/* =============================================================
+   ESCAC EN INSTAGRAM â€” grid de mini-posts
+============================================================= */
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 290px));
+  gap: var(--space-5);
+  justify-content: center;
+  align-items: start;
+  margin-top: var(--space-5);
+}
+.ig-grid .instagram-media {
+  /* Override de los estilos inline que inyecta Instagram */
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 290px !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 14px rgba(0,0,0,.05) !important;
+}
+@media (max-width: 720px) {
+  .ig-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-4);
+  }
+  .ig-grid .instagram-media {
+    max-width: 100% !important;
+  }
+}
