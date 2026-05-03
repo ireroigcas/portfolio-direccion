@@ -351,10 +351,48 @@ em {
    INTRO
 ============================================================= */
 .intro {
-  max-width: 1000px;
+  max-width: var(--max);
   margin: var(--space-12) auto;
   padding: 0 var(--gutter);
   text-align: left;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+.intro-text { min-width: 0; }
+.intro-photo {
+  margin: 0;
+  max-width: 360px;
+  justify-self: end;
+  width: 100%;
+}
+.intro-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #111;
+  box-shadow: 0 18px 40px -22px rgba(0,0,0,.4);
+}
+.intro-photo figcaption {
+  margin-top: .8rem;
+  font-size: .68rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-align: right;
+}
+@media (max-width: 860px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .intro-photo {
+    justify-self: start;
+    max-width: 280px;
+  }
+  .intro-photo figcaption { text-align: left; }
 }
 .eyebrow {
   display: inline-block;
