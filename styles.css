@@ -351,21 +351,20 @@ em {
    INTRO
 ============================================================= */
 .intro {
-  max-width: var(--max);
+  max-width: 1100px;
   margin: var(--space-12) auto;
   padding: 0 var(--gutter);
   text-align: left;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: var(--space-8);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-6);
   align-items: center;
 }
 .intro-text { min-width: 0; }
 .intro-photo {
   margin: 0;
-  max-width: 360px;
-  justify-self: end;
-  width: 100%;
+  width: 300px;
+  max-width: 100%;
 }
 .intro-photo img {
   width: 100%;
@@ -376,23 +375,19 @@ em {
   box-shadow: 0 18px 40px -22px rgba(0,0,0,.4);
 }
 .intro-photo figcaption {
-  margin-top: .8rem;
-  font-size: .68rem;
-  letter-spacing: .28em;
+  margin-top: .7rem;
+  font-size: .65rem;
+  letter-spacing: .26em;
   text-transform: uppercase;
   color: var(--mute);
-  text-align: right;
+  text-align: left;
 }
 @media (max-width: 860px) {
   .intro {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-  .intro-photo {
-    justify-self: start;
-    max-width: 280px;
-  }
-  .intro-photo figcaption { text-align: left; }
+  .intro-photo { width: 260px; }
 }
 .eyebrow {
   display: inline-block;
