@@ -432,7 +432,8 @@ em {
   padding-right: 0;
 }
 .section--dark > .section-head,
-.section--dark > .photo-grid {
+.section--dark > .photo-grid,
+.section--dark > .reference-grid {
   padding-left: var(--gutter);
   padding-right: var(--gutter);
   max-width: var(--max);
@@ -1067,18 +1068,43 @@ em {
   border-left: 1px solid rgba(255,255,255,.10);
 }
 .reference-card {
-  min-height: 240px;
+  position: relative;
+  min-height: 360px;
   padding: var(--space-4);
   border-right: 1px solid rgba(255,255,255,.10);
   border-bottom: 1px solid rgba(255,255,255,.10);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background:
-    linear-gradient(135deg, rgba(215,160,151,.10), rgba(255,255,255,0) 42%),
-    transparent;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: #1a1715;
   color: var(--dark-ink);
   transition: background .25s var(--ease), color .25s var(--ease);
+}
+.reference-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: grayscale(.35) brightness(.78) contrast(1.05);
+  transition: transform .8s var(--ease), filter .5s var(--ease);
+}
+.reference-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(14,13,12,.15) 0%, rgba(14,13,12,.55) 55%, rgba(14,13,12,.92) 100%);
+  pointer-events: none;
+}
+.reference-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
 }
 .reference-card span {
   font-family: var(--font-serif);
@@ -1095,8 +1121,9 @@ em {
   margin: 0;
   color: var(--dark-ink);
 }
-.reference-card:hover {
-  background: rgba(255,255,255,.06);
+.reference-card:hover .reference-photo {
+  transform: scale(1.04);
+  filter: grayscale(0) brightness(.88) contrast(1.05);
 }
 .reference-card:hover span {
   color: #e8b8af;
