@@ -265,15 +265,25 @@ em {
    HERO
 ============================================================= */
 .hero {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: var(--space-6) var(--gutter) var(--space-4);
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 var(--space-4);
 }
 .hero-media {
   position: relative;
   overflow: hidden;
   background: #000;
   aspect-ratio: 16 / 9;
+  width: 100%;
+}
+.hero-caption,
+.hero-reel-link {
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 .hero-media img,
 .hero-media video {
